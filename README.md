@@ -18,34 +18,6 @@ This system leverages the uniqueness of human iris patterns to provide:
 
 ---
 
-## 🏗️ Project Structure
-
-Iris Project/
-│
-├── CASIA_Dataset/
-│ ├── app.py
-│ ├── imageprocessing.py
-│ ├── model.py
-│ ├── preprocess.py
-│ └── requirements.txt
-│
-├── MMU_Iris_Dataset/
-│ ├── app.py
-│ ├── model.py
-│ ├── preprocess.py
-│ └── requirements.txt
-│
-├── media/
-│ ├── Flowchart.png
-│ ├── Iris Recognition.png
-│ ├── Pre_Process_Visualization.png
-│ └── Iris Based Biometric Authentication System - Research Paper.pdf
-│
-└── README.md
-
-
----
-
 ## 🧠 System Pipeline
 
 The system follows a modular biometric pipeline:
@@ -81,7 +53,7 @@ Techniques Used:
 
 ## 👁️ Iris Recognition Output
 
-![Iris Recognition Output](media/Iris Recognition.png)
+![Iris Recognition Output](media/Iris_Recognition.png)
 
 ---
 
@@ -132,25 +104,35 @@ Final Accuracy Achieved: **92.76%**
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/gopi-c-k/Iris-Based-Biometric-Authentication-System
 cd Iris-Project
+```
+
 2️⃣ Install Dependencies
 For CASIA Dataset:
-
+```bash
 cd CASIA_Dataset
 pip install -r requirements.txt
+```
 For MMU Dataset:
 
+```bash
 cd MMU_Iris_Dataset
 pip install -r requirements.txt
-3️⃣ Run Application
-python app.py
-📁 Dataset Used
-MMU Iris Dataset
+```
 
+3️⃣ Run Application
+
+```bash
+python app.py
+```
+
+📁 Dataset Used
+
+MMU Iris Dataset
 CASIA Iris Dataset
 
 📄 Research Paper
-The complete research paper is available inside:
+The complete research paper is here:
 
-media/Iris Based Biometric Authentication System - Research Paper.pdf
+![Research Paper](media/Iris_Based_Biometric_Authentication_System_Research_Paper.pdf)
