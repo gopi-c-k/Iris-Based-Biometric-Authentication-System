@@ -9,11 +9,9 @@ from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 
-# --- Config ---
-DATASET_DIR = "E:/College/BDA/Project/BIG Data/New folder/MMU_Iris_Database_segmented"
-IMAGE_SIZE = (64, 64)  # Resize images for model input
+DATASET_DIR = "E:/New folder/MMU_Iris_Database_segmented"
+IMAGE_SIZE = (64, 64) 
 
-# --- Load Data ---
 X = []
 y = []
 
@@ -29,18 +27,16 @@ for person_id in os.listdir(DATASET_DIR):
             if img is not None:
                 img_resized = cv2.resize(img, IMAGE_SIZE)
                 X.append(img_resized.flatten())
-                y.append(person_id)  # Only person ID as label
+                y.append(person_id)  
 
 X = np.array(X)
 y = np.array(y)
 
-# --- Split Data ---
 if len(X) == 0:
     raise ValueError("No images found. Check the dataset path and structure.")
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# --- Define Models ---
 models = {
     "KNN": KNeighborsClassifier(n_neighbors=3),
     "SVM": SVC(kernel='linear'),
@@ -51,7 +47,6 @@ models = {
 
 accuracies = {}
 
-# --- Train and Evaluate Models ---
 for name, model in models.items():
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
@@ -59,7 +54,6 @@ for name, model in models.items():
     accuracies[name] = acc
     print(f"✅ {name} Accuracy: {acc:.2f}")
 
-# --- Plot Accuracy ---
 plt.figure(figsize=(10, 6))
 plt.bar(accuracies.keys(), accuracies.values(), color='skyblue')
 plt.title("Model Accuracy Comparison")

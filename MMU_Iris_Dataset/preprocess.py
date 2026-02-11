@@ -2,12 +2,10 @@ import os
 import cv2
 import numpy as np
 
-# Paths (Change accordingly)
-DATASET_PATH = r"E:\College\BDA\Project\BIG Data\New folder\MMU-Iris-Database"
-PROCESSED_PATH = r"E:\College\BDA\Project\BIG Data\New folder\MMU-Iris-Processed"
+DATASET_PATH = r"E:\MMU-Iris-Database"
+PROCESSED_PATH = r"E:\MMU-Iris-Processed"
 
-IMG_SIZE = 128  # Resized image dimensions
-
+IMG_SIZE = 128 
 def preprocess_and_save(dataset_path, save_path, img_size=IMG_SIZE):
     """Preprocesses iris images and saves them in a new folder."""
     if not os.path.exists(save_path):
@@ -35,5 +33,5 @@ def preprocess_and_save(dataset_path, save_path, img_size=IMG_SIZE):
 
     print("Preprocessing complete. Processed images saved at:", save_path)
 
-# Run the preprocessing
+
 preprocess_and_save(DATASET_PATH, PROCESSED_PATH)
