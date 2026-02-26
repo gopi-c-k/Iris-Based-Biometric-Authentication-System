@@ -1,190 +1,138 @@
-# 📚 SmartAttend – Offline WiFi-Based Secure Attendance System
+# 🧿 Iris-Based Biometric Authentication System
 
-SmartAttend is a full-stack attendance tracking system designed for secure, real-time classroom attendance without requiring continuous internet connectivity. It uses local WiFi discovery, biometric authentication, and real-time synchronization to ensure reliable and tamper-proof attendance recording.
+A modular and research-driven Iris Recognition system built using Machine Learning and Deep Learning techniques for secure biometric authentication.
 
-This project consists of:
-
-* 🎓 Faculty App (Flutter)
-* 🎒 Student App (Flutter)
-* 🌐 Backend API (Node.js + MongoDB)
+This project evaluates classical ML models and lightweight CNN architectures on MMU and CASIA iris datasets, providing performance benchmarking and real-time authentication capability.
 
 ---
 
-## 🚀 Project Overview
+## 📌 Overview
 
-SmartAttend enables teachers to start an attendance session locally over WiFi. Students automatically discover the session, authenticate using their device fingerprint, and securely mark attendance in real time.
+Traditional authentication systems like passwords and PINs are vulnerable to breaches.  
+This system leverages the uniqueness of human iris patterns to provide:
 
-The system works fully offline on a local network and later syncs data to the backend when internet connectivity becomes available. This architecture ensures both reliability and security in classroom environments.
-
-The concept aligns with the offline, WiFi-based secure attendance workflow described in the SmartAttend invention proposal, where the teacher device acts as a local server and students connect through automatic discovery and biometric verification. 
-
----
-
-## 🧩 Project Structure
-
-```
-SmartAttend/
-│
-├── faculty/   # Flutter app for faculty dashboard
-├── student/   # Flutter app for student interactions
-└── backend/   # Node.js + MongoDB REST API
-```
-
-### 📱 Faculty App
-
-Flutter application used by teachers to:
-
-* Start attendance sessions
-* Generate classroom session codes
-* View real-time attendance logs
-* Generate attendance reports
-
-### 🎒 Student App
-
-Flutter application used by students to:
-
-* Discover attendance session automatically
-* Enter classroom code
-* Verify identity using fingerprint
-* Mark attendance securely
-
-### 🌐 Backend
-
-Node.js + MongoDB backend that:
-
-* Handles authentication
-* Stores attendance records
-* Syncs offline attendance data
-* Provides secure REST APIs
+- 🔐 Secure authentication
+- 👁️ Contactless identity verification
+- 📊 Model benchmarking (ML vs DL)
+- 🚀 Real-time inference capability
 
 ---
 
-## ✨ Features
+## 🧠 System Pipeline
 
-* 🔐 User Authentication (Faculty & Student)
-* 📡 Offline WiFi-based Session Discovery
-* 🧠 Mobile Fingerprint Authentication
-* ⏱ Real-time Attendance Recording
-* 🔄 Real-time Status Sync
-* 🌍 Secure REST API with MongoDB
-* 📊 Attendance Reports & Logs
-* 📴 Works Fully Offline (Local Network Mode)
-* ☁️ Later Online Sync Support
+The system follows a modular biometric pipeline:
 
----
-
-## 🏗️ System Architecture
-
-1. Teacher starts an attendance session.
-2. Session is broadcast over local WiFi.
-3. Students automatically discover the session.
-4. Students enter session code + verify fingerprint.
-5. Attendance is recorded in real time on teacher device.
-6. Data is later synced with the backend server.
-
-This ensures only physically present students connected to the same local network can mark attendance, preventing proxy attendance.
+1️⃣ Image Acquisition  
+2️⃣ Preprocessing  
+3️⃣ Iris Segmentation  
+4️⃣ Feature Extraction  
+5️⃣ Classification  
+6️⃣ Secure Template Matching  
 
 ---
 
-## 🛠️ Tech Stack
+## 🔍 Preprocessing Visualization
 
-### Mobile Apps
+![Preprocessing Visualization](media/Pre_Process_Visualization.png)
 
-* Flutter (Faculty & Student)
-* Dart
-* Biometric Authentication APIs
+Techniques Used:
 
-### Backend
-
-* Node.js
-* Express.js
-* MongoDB
-* JWT Authentication
-
-### Networking & Security
-
-* Local WiFi-based communication
-* mDNS / Service Discovery
-* TCP socket-based attendance submission
-* Fingerprint-based identity verification
+- CLAHE (Contrast Enhancement)
+- Bilateral Filtering
+- Iris Masking
+- Segmentation
+- Normalization
 
 ---
 
-## 📦 Installation & Setup
+## 🏛️ System Flowchart
 
-### 1️⃣ Clone the Repository
+![System Flowchart](media/Flowchart.png)
+
+---
+
+## 👁️ Iris Recognition Output
+
+![Iris Recognition Output](media/Iris_Recognition.png)
+
+---
+
+## 📊 Model Performance (MMU Dataset)
+
+| Model | Accuracy | F1 Score |
+|--------|----------|----------|
+| CNN | 52.22% | 49.74% |
+| VGG16 | 4.44% | 1.52% |
+| MobileNetV2 | 52.44% | 45.30% |
+| EfficientNetB0 | 57.89% | 47.44% |
+| 🏆 SVM | **81.11%** | **77.23%** |
+| Random Forest | 63.33% | 60.60% |
+| XGBoost | 45.56% | 42.29% |
+| KNN | 43.33% | 41.04% |
+
+### 🔥 Best Performing Model:
+**Support Vector Machine (SVM)**
+
+---
+
+## 🚀 Deep Learning Implementation
+
+MobileNetV2 Configuration:
+
+- Transfer Learning (ImageNet Pretrained)
+- Input Size: 224x224 RGB
+- Optimizer: Adam
+- Learning Rate: 0.0005
+- Epochs: 15
+- Loss Function: Cross Entropy
+
+Final Accuracy Achieved: **92.76%**
+
+---
+
+## 🔐 Security Features
+
+- Encrypted Template Storage
+- Threshold-based Matching
+- Modular Architecture
+- Secure Authentication Decision System
+
+---
+
+## 💻 How To Run
+
+### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/your-username/smartattend.git
-cd smartattend
+git clone https://github.com/gopi-c-k/Iris-Based-Biometric-Authentication-System
+cd Iris-Project
 ```
 
----
-
-### 2️⃣ Backend Setup
+2️⃣ Install Dependencies
+For CASIA Dataset:
+```bash
+cd CASIA_Dataset
+pip install -r requirements.txt
+```
+For MMU Dataset:
 
 ```bash
-cd backend
-npm install
-npm run dev
+cd MMU_Iris_Dataset
+pip install -r requirements.txt
 ```
 
-Create a `.env` file:
-
-```
-PORT=5000
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_secret_key
-```
-
----
-
-### 3️⃣ Faculty App Setup
+3️⃣ Run Application
 
 ```bash
-cd faculty
-flutter pub get
-flutter run
+python app.py
 ```
 
----
+📁 Dataset Used
 
-### 4️⃣ Student App Setup
+MMU Iris Dataset
+CASIA Iris Dataset
 
-```bash
-cd student
-flutter pub get
-flutter run
-```
+📄 Research Paper
+The complete research paper is here:
 
----
-
-## 🔒 Security Highlights
-
-* Fingerprint authentication prevents proxy attendance
-* Session-based classroom code validation
-* Local network presence enforcement
-* Real-time secure communication via sockets
-* Offline-first architecture with later cloud sync
-
----
-
-## 📊 Future Enhancements
-
-* BLE-based proximity validation
-* AI-based attendance anomaly detection
-* Face recognition support (optional module)
-* Analytics dashboard for attendance insights
-* Multi-class & timetable integration
-
----
-
-## 📄 License
-
-This project is for academic and research purposes. Licensing can be updated based on deployment needs.
-
----
-
-## ⭐ Support
-
-If you like this project, give it a ⭐ on GitHub and share your feedback!
+![Research Paper](media/Iris_Based_Biometric_Authentication_System_Research_Paper.pdf)
